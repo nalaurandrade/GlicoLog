@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
@@ -7,6 +8,17 @@ export default function App() {
       <Text>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" />
     </View>
+=======
+import Grafico from './src/screens/grafico';
+import Navigation from './navigation';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+const Stack = createStackNavigator();
+ 
+ export default function App() {
+   return (
+    <Navigation />
+>>>>>>> Stashed changes
   );
 }
 
