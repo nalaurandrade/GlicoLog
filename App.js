@@ -5,7 +5,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import Lancamento from './src/screens/lancamento';
 import CalendarioScreen from './src/screens/CalendarioScreen';
 import GraficoScreen from './src/screens/GraficoScreen';
-import ListaScreen from './src/screens/ListaScreen';
+import ListaScreen from './src/screens/listascreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -13,7 +13,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Cadastro">
-        <Drawer.Screen name="Cadastro" component={Lancamento} />
+        <Drawer.Screen name="Lançamento" component={Lancamento} />
         <Drawer.Screen name="Lista" component={ListaScreen} />
         <Drawer.Screen name="Calendário" component={CalendarioScreen} />
         <Drawer.Screen name="Gráfico" component={GraficoScreen} />
