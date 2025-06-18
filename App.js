@@ -1,20 +1,23 @@
-import CadastroScreen from "./src/screens/lancamento";
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import { View, Text, FlatList, StyleSheet } from 'react-native';
- 
- export default function App() {
-   return (
-   <View>
-     <CadastroScreen />
-   </View> 
+import Lancamento from './src/screens/lancamento';
+import CalendarioScreen from './src/screens/CalendarioScreen';
+import GraficoScreen from './src/screens/GraficoScreen';
+import ListaScreen from './src/screens/ListaScreen';
+
+const Drawer = createDrawerNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName="Cadastro">
+        <Drawer.Screen name="Cadastro" component={Lancamento} />
+        <Drawer.Screen name="Lista" component={ListaScreen} />
+        <Drawer.Screen name="Calendário" component={CalendarioScreen} />
+        <Drawer.Screen name="Gráfico" component={GraficoScreen} />
+      </Drawer.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
