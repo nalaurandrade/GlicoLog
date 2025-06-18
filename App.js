@@ -1,24 +1,12 @@
-<<<<<<< Updated upstream
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import CadastroScreen from "./src/screens/lancamento";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-=======
-import Grafico from './src/screens/grafico';
-import Navigation from './navigation';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-const Stack = createStackNavigator();
+import { View, Text, FlatList, StyleSheet } from 'react-native';
  
  export default function App() {
    return (
-    <Navigation />
->>>>>>> Stashed changes
+   <View>
+     <CadastroScreen />
+   </View> 
   );
 }
 
