@@ -15,7 +15,7 @@ export default function ListaScreen() {
       };
       carregarCadastros();
     }, [])
-  ); // ← o hook termina aqui corretamente ✅
+  ); 
 
   const formatarData = (iso) =>
     new Date(iso).toLocaleString('pt-BR', {

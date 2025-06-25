@@ -26,7 +26,6 @@ export default function GraficoScreen() {
     );
   }
 
-  // Preparar dados do gráfico
   const dadosOrdenados = [...dados].sort((a, b) => new Date(a.data) - new Date(b.data));
 
   const labels = dadosOrdenados.map((item) =>
