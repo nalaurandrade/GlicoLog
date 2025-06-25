@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { View, Dimensions, StyleSheet, Text } from 'react-native';
-import { BarChart } from 'react-native-chart-kit';
+import { LineChart } from 'react-native-chart-kit';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 
@@ -42,7 +42,7 @@ export default function GraficoScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.titulo}>Glicose por Dia</Text>
-      <BarChart
+      <LineChart
         data={{
           labels: labels,
           datasets: [{ data: valores }],
@@ -57,9 +57,15 @@ export default function GraficoScreen() {
           decimalPlaces: 0,
           color: (opacity = 1) => `rgba(63, 81, 181, ${opacity})`,
           labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+          style: { borderRadius: 10 },
+          propsForDots: {
+            r: '4',
+            strokeWidth: '2',
+            stroke: '#3F51B5',
+          },
         }}
+        bezier
         style={styles.chart}
-        verticalLabelRotation={30}
       />
     </View>
   );
