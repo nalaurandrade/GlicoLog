@@ -10,8 +10,7 @@ const Drawer = createDrawerNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Calendário">
-        <Drawer.Screen name="Calendário" component={CalendarioScreen} />
+      <Drawer.Navigator initialRouteName="CalendarioScreen">
         <Drawer.Screen name="Gráfico" component={GraficoScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
