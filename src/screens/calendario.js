@@ -2,8 +2,8 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import CalendarioScreen from './src/screens/CalendarioScreen';
-import GraficoScreen from './src/screens/GraficoScreen';
+import Calendario from './src/screens/Calendario';
+import Grafico from './src/screens/Grafico';
 
 const Drawer = createDrawerNavigator();
 
