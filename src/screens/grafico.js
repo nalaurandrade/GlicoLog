@@ -61,7 +61,7 @@ export default function GraficoScreen() {
           propsForDots: {
             r: '4',
             strokeWidth: '2',
-            stroke: '#3F51B5',
+            stroke: '#21480b',
           },
         }}
         bezier
