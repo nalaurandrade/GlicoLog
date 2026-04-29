@@ -1,37 +1,51 @@
 import React, { useEffect } from 'react';
-import { View, Button, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Alert
+} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as WebBrowser from 'expo-web-browser';
 import * as Google from 'expo-auth-session/providers/google';
-import * as AuthSession from 'expo-auth-session';
 
 WebBrowser.maybeCompleteAuthSession();
 
-export default function Login({ navigation }) {
-  const redirectUri = AuthSession.makeRedirectUri({
-    useProxy: true,
-  });
-
-  console.log(redirectUri);
-
-    const [request, response, promptAsync] = Google.useAuthRequest({
+export default function LoginScreen({ setLogado }) {
+  const [request, response, promptAsync] = Google.useAuthRequest({
     expoClientId: '471396317495-hanktdomad5eka59iv70b0kbh5u1vjik.apps.googleusercontent.com',
+    androidClientId: '471396317495-hanktdomad5eka59iv70b0kbh5u1vjik.apps.googleusercontent.com',
+    iosClientId: '471396317495-hanktdomad5eka59iv70b0kbh5u1vjik.apps.googleusercontent.com',
     webClientId: '471396317495-hanktdomad5eka59iv70b0kbh5u1vjik.apps.googleusercontent.com',
-    redirectUri: "http://localhost:8081",
-    });
+  });
 
   useEffect(() => {
     if (response?.type === 'success') {
-      navigation.navigate('Calendário');
+      salvarLogin();
     }
   }, [response]);
 
+  const salvarLogin = async () => {
+    try {
+      await AsyncStorage.setItem('logado', 'true');
+      setLogado(true);
+    } catch (error) {
+      Alert.alert('Erro', 'Não foi possível fazer login');
+    }
+  };
+
   return (
     <View style={styles.container}>
-      <Button
-        title="Entrar com Google"
+      <Text style={styles.titulo}>Login</Text>
+
+      <TouchableOpacity
+        style={styles.botao}
         disabled={!request}
-        onPress={() => promptAsync({ useProxy: true })}
-      />
+        onPress={() => promptAsync()}
+      >
+        <Text style={styles.textoBotao}>Entrar com Google</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -40,6 +54,24 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    padding: 20,
+    backgroundColor: '#fff'
   },
+  titulo: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 30
+  },
+  botao: {
+    backgroundColor: '#DB4437',
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center'
+  },
+  textoBotao: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 18
+  }
 });
