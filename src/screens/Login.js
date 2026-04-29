@@ -13,11 +13,11 @@ export default function Login({ navigation }) {
 
   console.log(redirectUri);
 
-  const [request, response, promptAsync] = Google.useAuthRequest({
+    const [request, response, promptAsync] = Google.useAuthRequest({
     expoClientId: '471396317495-hanktdomad5eka59iv70b0kbh5u1vjik.apps.googleusercontent.com',
     webClientId: '471396317495-hanktdomad5eka59iv70b0kbh5u1vjik.apps.googleusercontent.com',
-    redirectUri,
-  });
+    redirectUri: "http://localhost:8081",
+    });
 
   useEffect(() => {
     if (response?.type === 'success') {
