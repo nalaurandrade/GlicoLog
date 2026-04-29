@@ -13,6 +13,7 @@ npx expo install @react-native-async-storage/async-storage
 npx expo install react-native-calendars
 npx expo install react-native-chart-kit
 npx expo install react-native-svg
+npx expo install expo-auth-session expo-web-browser
 ```
 
 ## Rodar o projeto
