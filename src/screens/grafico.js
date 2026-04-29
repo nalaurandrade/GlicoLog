@@ -16,7 +16,7 @@ export default function GraficoScreen() {
       };
       carregarDados();
     }, [])
-  );
+  ); //
 
   if (dados.length === 0) {
     return (
