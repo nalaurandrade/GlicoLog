@@ -1,17 +1,11 @@
 ## Instalação das dependências
 
 ```bash
-npx expo install expo-auth-session
-npx expo install expo-web-browser
-npx expo install @react-native-async-storage/async-storage
-npx expo install @react-navigation/native
-npx expo install @react-navigation/drawer
-npx expo install @react-navigation/stack
-npx expo install react-native-gesture-handler
-npx expo install react-native-reanimated
-npx expo install react-native-screens
-npx expo install react-native-safe-area-context
-npx expo install react-native-chart-kit react-native-svg
+npx expo install react-native-chart-kit react-native-svg expo-auth-session expo-web-browser @react-native-async-storage/async-storage
+```
+
+```bash
+npx expo install @react-navigation/native @react-navigation/drawer @react-navigation/stack react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context
 ```
 
 ## Rodar o projeto
