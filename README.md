@@ -1,30 +1,22 @@
-"# GlicoLog" 
-# Como executar o projeto
+## Instalação das dependências
 
 ```bash
-npm install react-native-chart-kit react-native-svg
+npm install
+npx expo install @react-navigation/native
+npx expo install @react-navigation/drawer
+npx expo install react-native-gesture-handler
+npx expo install react-native-reanimated
+npx expo install react-native-screens
+npx expo install react-native-safe-area-context
+npx expo install react-native-vector-icons
+npx expo install @react-native-async-storage/async-storage
+npx expo install react-native-calendars
+npx expo install react-native-chart-kit
+npx expo install react-native-svg
 ```
 
-```bash
-npx expo install @react-native-async-storage/async-storage@1.23.1
-```
+## Rodar o projeto
 
 ```bash
-npx expo install react-native-safe-area-context@4.12.0
-```
-
-```bash
-npm install expo
-```
-
-```bash
-npm install @react-navigation/drawer
-```
-
-```bash
-npm install @react-navigation/native
-```
-
-```bash
-npx expo start -c
+npx expo start
 ```
