@@ -5,7 +5,10 @@
 npm install react-native-chart-kit react-native-svg
 ```
 
-
 ```bash
 npx expo start -c
+```
+
+```bash
+npm install expo
 ```
