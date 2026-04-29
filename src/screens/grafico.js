@@ -11,14 +11,14 @@ export default function GraficoScreen() {
     useCallback(() => {
       const carregarDados = async () => {
         const jsonValue = await AsyncStorage.getItem('cadastros');
-        const cadastros = jsonValue != null ? JSON.parse(jsonValue) : [];
+        const cadastros = jsonValue ? JSON.parse(jsonValue) : [];
         setDados(cadastros);
       };
       carregarDados();
     }, [])
-  ); //
+  );
 
-  if (dados.length === 0) {
+  if (!dados || dados.length === 0) {
     return (
       <View style={styles.container}>
         <Text style={styles.titulo}>Nenhum dado para exibir no gráfico.</Text>
@@ -26,25 +26,30 @@ export default function GraficoScreen() {
     );
   }
 
-  const dadosOrdenados = [...dados].sort((a, b) => new Date(a.data) - new Date(b.data));
+  const dadosOrdenados = [...dados]
+    .map(item => ({
+      ...item,
+      glicose: Number(item.glicose)
+    }))
+    .filter(item => !isNaN(item.glicose))
+    .sort((a, b) => new Date(a.data) - new Date(b.data));
 
-  const labels = dadosOrdenados.map((item) =>
+  const labels = dadosOrdenados.map(item =>
     new Date(item.data).toLocaleDateString('pt-BR', {
       day: '2-digit',
       month: '2-digit',
     })
   );
 
-  const valores = dadosOrdenados
-    .map((item) => Number(item.glicose))
-    .filter((val) => !isNaN(val));
+  const valores = dadosOrdenados.map(item => item.glicose);
 
   return (
     <View style={styles.container}>
       <Text style={styles.titulo}>Glicose por Dia</Text>
+
       <LineChart
         data={{
-          labels: labels,
+          labels,
           datasets: [{ data: valores }],
         }}
         width={Dimensions.get('window').width - 40}
