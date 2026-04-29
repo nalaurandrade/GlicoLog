@@ -5,9 +5,9 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import LoginScreen from './src/screens/LoginScreen';
+import LoginScreen from './src/screens/login';
 import CalendarioScreen from './src/screens/calendario';
-import GraficoScreen from './src/screens/GraficoScreen';
+import GraficoScreen from './src/screens/grafico';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
