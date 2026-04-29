@@ -12,3 +12,7 @@ npx expo start -c
 ```bash
 npm install expo
 ```
+
+```bash
+npm install @react-navigation/drawer
+```
