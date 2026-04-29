@@ -16,3 +16,7 @@ npm install expo
 ```bash
 npm install @react-navigation/drawer
 ```
+
+```bash
+npm install @react-navigation/native
+```
